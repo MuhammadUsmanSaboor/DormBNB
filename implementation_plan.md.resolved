@@ -1,0 +1,90 @@
+# DormBnB – Lahore’s Student Hostel Marketplace
+
+Building a high-end, functional web application similar to Airbnb, specifically for students in Lahore, Pakistan to find hostels based on proximity to their universities.
+
+## User Review Required
+
+> [!IMPORTANT]
+> Since this is built from scratch, I'll be using Vite + React for the framework and Vanilla CSS for styling (as requested, avoiding Tailwind CSS). I'll also use `react-leaflet` for the interactive map and `react-router-dom` for navigating between the search results and hostel detail pages.
+> Please review this technical stack and the proposed structure. Let me know if you would like me to use Next.js instead, or if the Vite + React approach sounds good to you!
+
+## Proposed Changes
+
+We will bootstrap the application using Vite and scaffold the following components and pages.
+
+### Core Application & Routing
+Setup routing and layout for the application.
+
+#### [NEW] `package.json`
+Setup Vite, React, React Router, React Leaflet, and standard icons (`lucide-react`).
+
+#### [NEW] `src/App.jsx`
+Implement `react-router-dom` with routes for `<Home />` and `<HostelDetail />`.
+
+---
+
+### Styling & Aesthetics (Vanilla CSS)
+Implementing clean, modern, and trustworthy themes using Lahore Green and Clean White.
+
+#### [NEW] `index.html`
+Link Google Fonts (Inter/Montserrat).
+
+#### [NEW] `src/index.css`
+A comprehensive stylesheet with CSS variables for colors, typography, soft shadows, and layout utilities.
+
+---
+
+### Pages
+
+#### [NEW] `src/pages/Home.jsx`
+The split-view interface with the Smart Hero Search, Filters, Hostel List on the left, and the Interactive Map on the right.
+
+#### [NEW] `src/pages/HostelDetail.jsx`
+A deep-dive page featuring a full photo gallery, exact map location, and a section for "University Proximity."
+
+---
+
+### Components
+
+#### [NEW] `src/components/HeroSearch.jsx`
+A prominent search bar allowing users to search by University Name with a "Near Me" button triggering geolocation.
+
+#### [NEW] `src/components/FilterChips.jsx`
+Filter options for Gender, Room Type, and Amenities.
+
+#### [NEW] `src/components/HostelCard.jsx`
+Displays hostel data with an image carousel, price/month, distance from university, a 'Quick Call' button (using `tel:`), and a WhatsApp button.
+
+#### [NEW] `src/components/InteractiveMap.jsx`
+A full-height interactive Leaflet map that reflects the pinned locations of the filtered hostels.
+
+---
+
+### Data Models & Logic
+
+#### [NEW] `src/data/mockData.js`
+Sample data generator including:
+- "Green View Hostel, Johar Town, 2km from UMT."
+- "Premium Residency, Faisal Town, 1km from FAST."
+- "LUMS Executive Hostel, DHA Phase 5, 0.5km from LUMS."
+
+#### [NEW] `src/utils/filterLogic.js`
+JavaScript function to filter hostels based on university name and selected filter chips.
+
+## Open Questions
+
+> [!QUESTION]
+> For the map, I will use open-source map tiles from OpenStreetMap via Leaflet instead of Google Maps to avoid API key requirements for this build. Is this acceptable?
+
+## Verification Plan
+
+### Automated Tests
+- Build output check (`npm run build`) to ensure successful compilation.
+- Ensure Vite development server starts without warnings.
+
+### Manual Verification
+- Manually test functionality: verify Smart Hero Search filters the list properly by university.
+- Test geolocation to ensure "Near Me" requests browser permission.
+- Check responsive behavior of the split-view interface.
+- Ensure 'Call' button uses `tel:` and 'WhatsApp' redirects correctly.
+- Test navigation between 'Home' and 'Hostel Detail' pages.
